@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css"/>
   <script src="https://unpkg.com/lottie-web@5.7.4/build/player/lottie.min.js"></script>
 </head>
-<body>
+<body> <body style="background-image: url('background.jpg');">
 
   <div class="container animate-in">
     <div id="lottie-anim" class="lottie"></div>
@@ -38,7 +38,8 @@
     <img src="asset/gallery/foto3.jpg" alt="Foto 3">
   </div>
 
-  <audio id="bg-music" src="asset/musik.mp3" loop></audio>
-  <script src="script.js"></script>
+  <audio autoplay loop>
+  <source src="musik.mp3" type="audio/mpeg">
+</audio>
 </body>
 </html>
