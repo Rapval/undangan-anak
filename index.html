@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="style.css"/>
   <script src="https://unpkg.com/lottie-web@5.7.4/build/player/lottie.min.js"></script>
 </head>
-
 <body style="background-image: url('background.jpg');">
 
   <div class="container animate-in">
@@ -33,7 +32,7 @@
   </div>
 
   <!-- Galeri Foto -->
-  <div class="gallery" id="gallery" style="display:none;">
+  <div class="gallery" id="gallery" style="display: none;">
     <img src="foto1.jpg" alt="Foto 1">
     <img src="foto2.jpg" alt="Foto 2">
     <img src="foto3.jpg" alt="Foto 3">
@@ -44,37 +43,39 @@
   </audio>
 
   <script>
-    // Nama tamu dari URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const nama = urlParams.get('untuk');
-    if (nama) {
-      document.getElementById('nama-tamu').textContent = decodeURIComponent(nama);
-    }
-
-    // Musik
     function playMusic() {
-      document.getElementById('bgMusic').play();
+      const audio = document.getElementById("bgMusic");
+      audio.play();
     }
 
-    // Galeri
     function toggleGallery() {
-      const galeri = document.getElementById('gallery');
-      galeri.style.display = galeri.style.display === 'none' ? 'block' : 'none';
+      const gallery = document.getElementById("gallery");
+      gallery.style.display = gallery.style.display === "block" ? "none" : "block";
     }
 
-    // Hitung Mundur
-    const targetDate = new Date("2025-06-10T00:00:00").getTime();
+    // Ambil nama tamu dari parameter URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const namaTamu = urlParams.get('untuk');
+    if (namaTamu) {
+      document.getElementById('nama-tamu').innerText = decodeURIComponent(namaTamu.replace(/\+/g, ' '));
+    }
+
+    // Countdown (Opsional)
     const countdown = document.getElementById("countdown");
+    const eventDate = new Date("2025-06-10T00:00:00").getTime();
     setInterval(() => {
       const now = new Date().getTime();
-      const selisih = targetDate - now;
+      const distance = eventDate - now;
 
-      const hari = Math.floor(selisih / (1000 * 60 * 60 * 24));
-      const jam = Math.floor((selisih % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const menit = Math.floor((selisih % (1000 * 60 * 60)) / (1000 * 60));
-      const detik = Math.floor((selisih % (1000 * 60)) / 1000);
-
-      countdown.innerHTML = `<p>Hitung Mundur: ${hari}h ${jam}j ${menit}m ${detik}d</p>`;
+      if (distance > 0) {
+        const hari = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const jam = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const menit = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const detik = Math.floor((distance % (1000 * 60)) / 1000);
+        countdown.innerHTML = `🕒 Hitung Mundur: ${hari}h ${jam}j ${menit}m ${detik}d`;
+      } else {
+        countdown.innerHTML = "Acara sedang berlangsung 🎉";
+      }
     }, 1000);
   </script>
 </body>
