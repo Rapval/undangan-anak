@@ -7,7 +7,8 @@
   <link rel="stylesheet" href="style.css"/>
   <script src="https://unpkg.com/lottie-web@5.7.4/build/player/lottie.min.js"></script>
 </head>
-<body> <body style="background-image: url('background.jpg');">
+
+<body style="background-image: url('background.jpg');">
 
   <div class="container animate-in">
     <div id="lottie-anim" class="lottie"></div>
@@ -32,14 +33,49 @@
   </div>
 
   <!-- Galeri Foto -->
-  <div class="gallery" id="gallery">
-    <img src="asset/gallery/foto1.jpg" alt="Foto 1">
-    <img src="asset/gallery/foto2.jpg" alt="Foto 2">
-    <img src="asset/gallery/foto3.jpg" alt="Foto 3">
+  <div class="gallery" id="gallery" style="display:none;">
+    <img src="foto1.jpg" alt="Foto 1">
+    <img src="foto2.jpg" alt="Foto 2">
+    <img src="foto3.jpg" alt="Foto 3">
   </div>
 
-  <audio autoplay loop>
-  <source src="musik.mp3" type="audio/mpeg">
-</audio>
+  <audio id="bgMusic" loop>
+    <source src="musik.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // Nama tamu dari URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const nama = urlParams.get('untuk');
+    if (nama) {
+      document.getElementById('nama-tamu').textContent = decodeURIComponent(nama);
+    }
+
+    // Musik
+    function playMusic() {
+      document.getElementById('bgMusic').play();
+    }
+
+    // Galeri
+    function toggleGallery() {
+      const galeri = document.getElementById('gallery');
+      galeri.style.display = galeri.style.display === 'none' ? 'block' : 'none';
+    }
+
+    // Hitung Mundur
+    const targetDate = new Date("2025-06-10T00:00:00").getTime();
+    const countdown = document.getElementById("countdown");
+    setInterval(() => {
+      const now = new Date().getTime();
+      const selisih = targetDate - now;
+
+      const hari = Math.floor(selisih / (1000 * 60 * 60 * 24));
+      const jam = Math.floor((selisih % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const menit = Math.floor((selisih % (1000 * 60 * 60)) / (1000 * 60));
+      const detik = Math.floor((selisih % (1000 * 60)) / 1000);
+
+      countdown.innerHTML = `<p>Hitung Mundur: ${hari}h ${jam}j ${menit}m ${detik}d</p>`;
+    }, 1000);
+  </script>
 </body>
 </html>
