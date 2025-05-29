@@ -1,154 +1,119 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Undangan Maotonan</title>
-
-  <!-- Font Latin Bali -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Balinese&display=swap" rel="stylesheet">
-
-  <!-- LottiePlayer for Naruto Animation -->
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-
   <style>
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Noto Sans Balinese', sans-serif;
-      background: linear-gradient(to bottom, #fff8e1, #f5e6ca);
-      background-image: url('https://i.imgur.com/NEZCgFe.jpg'); /* Ukiran Bali */
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-attachment: fixed;
-      background-position: center;
-      color: #333;
+      font-family: sans-serif;
+      background: #f5f5f5;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
-    header {
-      text-align: center;
-      padding: 80px 20px 40px;
-    }
-
-    .judul-maotonan {
-      font-size: 48px;
-      color: #b8860b;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-      margin-bottom: 10px;
-    }
-
-    .subjudul {
-      font-size: 20px;
-      color: #5e5e5e;
-    }
-
-    .btn-undangan {
-      display: inline-block;
-      margin-top: 40px;
-      padding: 15px 30px;
-      background-color: #b8860b;
-      color: white;
-      border: none;
-      font-size: 18px;
-      border-radius: 8px;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      transition: transform 0.2s ease;
-    }
-
-    .btn-undangan:hover {
-      transform: scale(1.05);
-      background-color: #d4af37;
-    }
-
-    #naruto-anim-container {
+    .container {
       display: none;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .buka-undangan {
       position: fixed;
-      z-index: 9999;
-      top: 0;
-      left: 0;
-      width: 100vw;
+      top: 0; left: 0;
+      width: 100%;
       height: 100vh;
-      background: radial-gradient(circle, #000000aa 20%, #000000dd 80%);
+      background: url('https://i.imgur.com/NEZCgFe.jpg') center/cover no-repeat;
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
+      color: white;
+      text-shadow: 1px 1px 3px #000;
     }
 
-    section {
-      padding: 40px 20px;
-      text-align: center;
-      background-color: rgba(255, 255, 255, 0.8);
-      margin: 40px auto;
-      max-width: 800px;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    .buka-undangan button {
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      background: #b8860b;
+      color: white;
+      cursor: pointer;
+      margin-top: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .section {
+      margin-top: 30px;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     footer {
       text-align: center;
-      font-size: 14px;
-      padding: 30px 10px;
-      color: #888;
+      margin-top: 50px;
+      padding: 20px;
+      color: #777;
     }
   </style>
 </head>
-
 <body>
 
-  <header>
-    <h1 class="judul-maotonan">MAOTONAN</h1>
-    <p class="subjudul">Upacara Manusa Yadnya</p>
-    <button class="btn-undangan" id="lihat-undangan">Lihat Undangan</button>
-  </header>
-
-  <!-- Naruto Animation -->
-  <div id="naruto-anim-container">
-    <lottie-player
-      src="https://assets6.lottiefiles.com/packages/lf20_yDOoB8.json"
-      background="transparent"
-      speed="1"
-      style="width: 300px; height: 300px;"
-      autoplay>
-    </lottie-player>
+  <!-- Halaman Awal -->
+  <div class="buka-undangan" id="cover">
+    <h1>Undangan Maotonan</h1>
+    <p>Tekan untuk membuka undangan</p>
+    <button onclick="bukaUndangan()">Buka Undangan</button>
   </div>
 
   <!-- Isi Undangan -->
-  <section>
+  <div class="container" id="isi-undangan">
     <h2>Om Swastyastu</h2>
-    <p>
-      Dengan hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam upacara Maotonan putra kami yang akan diselenggarakan pada:
-    </p>
-    <p><strong>Hari/Tanggal:</strong> Sabtu, 1 Juni 2025<br>
-    <strong>Waktu:</strong> 09.00 WITA<br>
-    <strong>Tempat:</strong> Jl. Raya Dharma Bali No.88, Gianyar</p>
-    <p>
-      Kehadiran dan doa restu Bapak/Ibu/Saudara/i sangat kami harapkan. Terima kasih atas perhatiannya.
-    </p>
-    <p>Om Shanti Shanti Shanti Om</p>
-  </section>
+    <p>Dengan hormat kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam upacara Maotonan anak kami.</p>
+    
+    <div class="section">
+      <h3>🗓️ Waktu dan Tempat</h3>
+      <p>
+        Sabtu, 1 Juni 2025<br>
+        Pukul 09.00 WITA<br>
+        Jl. Dharma Bali No.88, Gianyar
+      </p>
+    </div>
 
-  <footer>
-    &copy; 2025 Keluarga Besar Gede Wiratama
-  </footer>
+    <div class="section">
+      <h3>💌 Amplop Digital</h3>
+      <p>Jika berkenan memberikan tanda kasih secara digital, silakan transfer ke:</p>
+      <p><strong>Bank BCA</strong><br>
+      1234567890<br>
+      a.n. Gede Wiratama</p>
+    </div>
 
-  <!-- Script Animasi Naruto -->
+    <div class="section">
+      <h3>🙏 Penutup</h3>
+      <p>Kehadiran dan doa restu Bapak/Ibu sangat berarti bagi kami. Terima kasih.</p>
+      <p>Om Shanti Shanti Shanti Om</p>
+    </div>
+  </div>
+
+  <!-- Musik Otomatis -->
+  <audio id="musik" src="musik.mp3" loop></audio>
+
   <script>
-    const undanganBtn = document.getElementById('lihat-undangan');
-    const narutoAnim = document.getElementById('naruto-anim-container');
-
-    if (undanganBtn) {
-      undanganBtn.addEventListener('click', () => {
-        narutoAnim.style.display = 'flex';
-
-        // Sembunyikan animasi setelah 4 detik
-        setTimeout(() => {
-          narutoAnim.style.display = 'none';
-        }, 4000);
+    function bukaUndangan() {
+      // Sembunyikan cover
+      document.getElementById('cover').style.display = 'none';
+      // Tampilkan isi undangan
+      document.getElementById('isi-undangan').style.display = 'block';
+      // Mainkan musik
+      const musik = document.getElementById('musik');
+      musik.play().catch((e) => {
+        console.log("Autoplay gagal, pengguna harus berinteraksi terlebih dahulu.", e);
       });
     }
   </script>
