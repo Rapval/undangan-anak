@@ -1,91 +1,109 @@
 body {
+  font-family: 'Georgia', serif;
   margin: 0;
-  font-family: 'Georgia', serif;
-  background: url('background.jpg') no-repeat center center fixed;
-  background-size: cover;
-  color: #222; /* tidak putih */
+  padding: 0;
+  background: url('background.jpg') center/cover no-repeat fixed;
+  color: #222;
+}
+
+.cover {
   text-align: center;
-}
-
-.judul-latin {
-  font-family: 'Georgia', serif;
-  font-size: 2em;
-  text-shadow: 2px 2px 4px #ffe;
-}
-
-.container {
-  padding: 20px;
-  animation: fadeIn 2s ease;
-}
-
-.opening-screen {
+  padding: 100px 20px;
+  background-color: rgba(255, 255, 255, 0.9);
   height: 100vh;
-  background: linear-gradient(#fefcea, #f1da36);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
-.opening-screen h1 {
-  font-size: 2.5em;
-  margin-bottom: 20px;
-}
-
-.opening-screen button {
-  padding: 10px 20px;
-  font-size: 1.2em;
-  background: #ffcd38;
+.btn-buka {
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #ffcc00;
   border: none;
-  border-radius: 10px;
+  border-radius: 25px;
   cursor: pointer;
-  animation: pulse 2s infinite;
+  transition: 0.3s ease;
 }
 
-.lottie {
-  width: 300px;
-  margin: 0 auto;
-}
-
-.gallery {
-  margin-top: 20px;
-  display: none;
-}
-
-.gallery img {
-  width: 80%;
-  border-radius: 12px;
-  margin-bottom: 10px;
-  transition: transform 0.5s;
-}
-.gallery img:hover {
+.btn-buka:hover {
+  background-color: #ffaa00;
   transform: scale(1.05);
 }
 
-.rekening {
-  margin-top: 20px;
-  background-color: rgba(255, 255, 240, 0.85);
-  padding: 10px;
-  border-radius: 10px;
-}
-
-.lokasi-button {
-  background-color: #ffcd38;
-  padding: 10px;
-  border: none;
-  text-decoration: none;
-  color: #000;
-  font-weight: bold;
-  border-radius: 10px;
+.container {
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.95);
+  max-width: 800px;
+  margin: auto;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .hidden {
   display: none;
 }
 
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
+.judul-latin {
+  font-size: 30px;
+  font-weight: bold;
+  color: #2c2c2c;
+  margin-bottom: 10px;
+}
+
+.teks {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.lokasi-button, .gallery-button {
+  background-color: #ffd700;
+  color: #000;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  margin: 10px 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.lokasi-button:hover, .gallery-button:hover {
+  background-color: #ffb300;
+  transform: scale(1.05);
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.gallery img {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+.rekening {
+  margin-top: 30px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.countdown-box {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #0066cc;
+  animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
