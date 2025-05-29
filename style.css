@@ -109,3 +109,9 @@ h3.subjudul {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.05); }
 }
+.fancy-text {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2em;
+  color: #ff8c00;
+  margin: 0.5em 0;
+}
