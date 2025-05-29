@@ -3,162 +3,74 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Undangan Otonan</title>
-  <link rel="stylesheet" href="style.css"/>
+  <title>Undangan Dua Otonan 🎉</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lottie-web@5.7.4/build/player/lottie.min.js"></script>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-image: url('background.jpg');
-      background-size: cover;
-      background-position: center;
-      color: #fff;
-      text-align: center;
-      overflow-x: hidden;
-    }
-
-    .buka-button {
-      margin-top: 35vh;
-      padding: 15px 40px;
-      font-size: 1.5em;
-      background-color: #ff5722;
-      color: white;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-      animation: pulse 2s infinite;
-    }
-
-    .container {
-      display: none;
-      padding: 20px;
-      animation: fadeIn 1.5s ease-in-out;
-    }
-
-    .container h1, .container h2 {
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-    }
-
-    .lokasi-button, .rekening {
-      margin: 15px;
-      display: inline-block;
-      padding: 10px 25px;
-      background: #2196f3;
-      border-radius: 30px;
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .gallery {
-      margin-top: 30px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      padding: 10px;
-    }
-
-    .gallery img {
-      width: 250px;
-      border-radius: 20px;
-      transition: transform 0.3s ease, box-shadow 0.3s;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-    }
-
-    .gallery img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.5);
-    }
-
-    #countdown {
-      margin-top: 15px;
-      font-size: 1.2em;
-      font-weight: bold;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-      100% { transform: scale(1); }
-    }
-
-    .lottie {
-      width: 200px;
-      margin: auto;
-    }
-  </style>
 </head>
-<body>
+<body style="background-image: url('background.jpg');">
 
-  <!-- Tombol Buka -->
-  <button class="buka-button" onclick="bukaUndangan()">🍥 Buka Undangan</button>
+  <div class="sun"></div>
 
-  <!-- Isi Undangan -->
-  <div class="container" id="undangan-content">
-    <div class="lottie" id="lottie-naruto"></div>
+  <div class="open-btn-container" id="openContainer">
+    <button onclick="bukaUndangan()" class="open-button">Klik Untuk Membuka Undangan 📜</button>
+  </div>
 
-    <h1>Undangan Upacara Otonan 🎉</h1>
-    <h2>Manusa Yadnya</h2>
-    <h2>"MAOTONAN"</h2>
+  <div class="container animate-in" id="isiUndangan" style="display: none;">
+    <div id="naruto-animation" class="lottie"></div>
 
-    <p>Hai <span id="nama-tamu">Tamu Spesial</span>,</p>
-    <p>Kami mengundangmu hadir di hari berbahagia putra kami tercinta.</p>
+    <h1>Undangan Upacara Manusa Yadnya 🎉</h1>
+    <h2>“MAOTONAN”</h2>
+    <p>Halo <span id="nama-tamu">Tamu Spesial</span>,</p>
+    <p>Kami mengundangmu untuk hadir di acara ulang tahun anak kami.</p>
 
     <p><strong>Tanggal:</strong> 10 Juni 2025</p>
-    <a class="lokasi-button" href="https://maps.app.goo.gl/WDsSUm5mvQoFox9j8" target="_blank">📍 Lihat Lokasi</a>
+    <p><strong>Lokasi:</strong></p>
+    <a class="lokasi-button" href="https://maps.app.goo.gl/WDsSUm5mvQoFox9j8" target="_blank">📍 Klik Untuk Lokasi</a>
 
     <div id="countdown"></div>
 
-    <button onclick="toggleGallery()">📸 Lihat Galeri</button>
-    <div class="rekening">
-      🎁 Kirim Hadiah: BCA 6485235454 a/n Rivaldo Natael
-    </div>
+    <button onclick="playMusic()">Putar Musik 🎵</button>
+    <button onclick="toggleGallery()">Lihat Galeri 📸</button>
 
-    <!-- Galeri -->
-    <div class="gallery" id="gallery" style="display: none;">
-      <img src="foto1.jpg" alt="Foto 1">
-      <img src="foto2.jpg" alt="Foto 2">
-      <img src="foto3.jpg" alt="Foto 3">
-      <!-- Tambah foto sesuai kebutuhan -->
+    <div class="rekening">
+      💌 Kirim Hadiah: <br>
+      BCA 6485235454 a/n Rivaldo Natael
     </div>
   </div>
 
-  <!-- Musik -->
+  <div class="gallery" id="gallery" style="display: none;">
+    <img src="foto1.jpg" alt="Foto 1">
+    <img src="foto2.jpg" alt="Foto 2">
+    <img src="foto3.jpg" alt="Foto 3">
+  </div>
+
   <audio id="bgMusic" loop>
     <source src="musik.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- Script -->
   <script>
-    // Tampilkan undangan
     function bukaUndangan() {
-      document.querySelector('.buka-button').style.display = 'none';
-      document.getElementById('undangan-content').style.display = 'block';
-      document.getElementById("bgMusic").play();
+      document.getElementById('openContainer').style.display = 'none';
+      document.getElementById('isiUndangan').style.display = 'block';
     }
 
-    // Galeri toggle
+    function playMusic() {
+      const audio = document.getElementById("bgMusic");
+      audio.play();
+    }
+
     function toggleGallery() {
       const gallery = document.getElementById("gallery");
-      gallery.style.display = gallery.style.display === "block" ? "none" : "flex";
+      gallery.style.display = gallery.style.display === "block" ? "none" : "block";
     }
 
-    // Nama tamu
     const urlParams = new URLSearchParams(window.location.search);
     const namaTamu = urlParams.get('untuk');
     if (namaTamu) {
       document.getElementById('nama-tamu').innerText = decodeURIComponent(namaTamu.replace(/\+/g, ' '));
     }
 
-    // Countdown
     const countdown = document.getElementById("countdown");
     const eventDate = new Date("2025-06-10T00:00:00").getTime();
     setInterval(() => {
@@ -169,19 +81,19 @@
         const jam = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const menit = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const detik = Math.floor((distance % (1000 * 60)) / 1000);
-        countdown.innerHTML = `⏳ ${hari}h ${jam}j ${menit}m ${detik}d`;
+        countdown.innerHTML = `🕒 Hitung Mundur: ${hari}h ${jam}j ${menit}m ${detik}d`;
       } else {
-        countdown.innerHTML = "🎊 Acara sedang berlangsung!";
+        countdown.innerHTML = "Acara sedang berlangsung 🎉";
       }
     }, 1000);
 
-    // Lottie Naruto
+    // Naruto Lottie
     lottie.loadAnimation({
-      container: document.getElementById('lottie-naruto'),
+      container: document.getElementById('naruto-animation'),
       renderer: 'svg',
       loop: true,
       autoplay: true,
-      path: 'https://lottie.host/4843b8b2-b8e8-4b12-bc25-ff7c937cb9a1/ALfdc0piU6.json' // ganti ini jika kamu punya Lottie Naruto lainnya
+      path: 'https://assets3.lottiefiles.com/packages/lf20_hgjazn5z.json' // animasi Naruto
     });
   </script>
 </body>
