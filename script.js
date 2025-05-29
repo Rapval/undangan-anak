@@ -39,10 +39,10 @@ setInterval(() => {
     return;
   }
 
-  const hari = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const jam = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const menit = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  const detik = Math.floor((distance % (1000 * 60)) / 1000);
+  const Day = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const Hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const Minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const Second = Math.floor((distance % (1000 * 60)) / 1000);
 
-  countdown.innerHTML = `Countdown: ${hari}h ${jam}j ${menit}m ${detik}d`;
+  countdown.innerHTML = `Countdown: ${Day}D ${Hours}H ${Minuets}M ${Second}S`;
 }, 1000);
