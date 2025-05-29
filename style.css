@@ -48,37 +48,36 @@ h1, h2, h3, p, button, a {
 
 h1.judul {
   font-size: 2.5em;
-  color: #FFD700
 }
 
 h2.subjudul {
   font-size: 1.8em;
   margin-bottom: 1em;
-  color: #FFD700
+  color: ff8c00;
 }
 
 h3.subjudul {
   font-size: 1.8em;
-  margin-bottom: 1em
-  color: #FFD700
+  margin-bottom: 1em;
+  color: ff8c00;
+}
 
 .lokasi-button, button {
   margin: 1em;
   padding: 10px 20px;
-  background-color: #ffcc00;
+  background-color: #ff00ff;
   border: none;
   border-radius: 10px;
-  color: #FF00FF;
+  font-weight: bold;
+  color: #333;
 }
 
 .rekening {
-  margin-top: 3em;
-  font-size: 2em;
+  margin-top: 2em;
+  font-size: 1em;
   padding:10px 20px;
-  border: none;
-  border-radius: 10px;
-  background-color: #0000FF;
-  color: #000000;
+  background-color: #0000ff;
+  color: #fdf5e6;
 }
 
 .gallery {
