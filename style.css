@@ -1,77 +1,107 @@
 body {
+  font-family: 'Great Vibes', cursive;
+  background-size: cover;
+  background-position: center;
+  color: #222;
+  text-align: center;
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: url('asset/images/background.jpg') no-repeat center center fixed;
-  background-size: cover;
-  color: #333;
 }
 
 .container {
-  background: rgba(255, 255, 255, 0.9);
-  max-width: 500px;
-  margin: 60px auto;
   padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-  text-align: center;
-  animation: fadeIn 1.5s ease-in;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 15px;
+  margin: 40px auto;
+  max-width: 600px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+h1, h2 {
+  margin: 10px 0;
+  color: #d35400;
+}
+
+.lokasi-button {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 10px 15px;
+  background: #f39c12;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: bold;
 }
 
 button {
-  margin-top: 20px;
-  padding: 12px 25px;
+  padding: 10px 15px;
+  margin: 10px 5px;
+  border: none;
+  border-radius: 8px;
+  background-color: #3498db;
+  color: white;
   font-size: 16px;
-  background-color: #ff9f1c;
+  cursor: pointer;
+}
+
+.rekening {
+  margin-top: 20px;
+  font-size: 18px;
+  background-color: #ffeaa7;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.gallery {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  background: rgba(255,255,255,0.95);
+}
+
+.gallery img {
+  width: 300px;
+  height: auto;
+  border-radius: 12px;
+  transition: transform 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.sun {
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, #FFD700 0%, #FFA500 100%);
+  border-radius: 50%;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  animation: rotate 20s linear infinite;
+  box-shadow: 0 0 30px rgba(255,215,0,0.8);
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.open-btn-container {
+  text-align: center;
+  margin-top: 150px;
+}
+
+.open-button {
+  background-color: #e67e22;
+  padding: 20px 30px;
+  font-size: 20px;
   color: white;
   border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-button:hover {
-  background-color: #e76f51;
-}
-
-.lottie {
-  width: 150px;
-  height: 150px;
-  margin: 0 auto 20px;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-/* Countdown */
-#countdown {
-  font-size: 20px;
-  margin: 20px 0;
-  font-weight: bold;
-  color: #e63946;
-}
-
-/* Galeri */
-.gallery {
-  display: none;
-  margin: 20px auto;
-  text-align: center;
-}
-.gallery img {
-  width: 100%;
-  max-width: 300px;
-  margin: 10px;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-/* Rekening */
-.rekening {
-  margin-top: 30px;
-  font-weight: bold;
-  color: #2a9d8f;
-  background-color: #f0f0f0;
-  padding: 15px;
-  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
