@@ -1,107 +1,80 @@
 body {
-  font-family: 'Great Vibes', cursive;
-  background-size: cover;
-  background-position: center;
-  color: #222;
-  text-align: center;
   margin: 0;
   padding: 0;
+  background-image: url('background.jpg');
+  background-size: cover;
+  background-position: center;
+  font-family: 'Great Vibes', cursive;
+  color: #f5e8c7;
+  text-align: center;
 }
 
 .container {
-  padding: 30px;
-  background-color: rgba(255, 255, 255, 0.85);
-  border-radius: 15px;
-  margin: 40px auto;
-  max-width: 600px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  padding: 2rem;
+  background: none; /* Menghilangkan background putih */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Biar tulisan lebih hidup */
 }
 
-h1, h2 {
-  margin: 10px 0;
-  color: #d35400;
+h1.judul {
+  font-size: 2.5em;
+  margin-bottom: 0.2em;
 }
 
-.lokasi-button {
+h2.subjudul {
+  font-size: 1.8em;
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+a.lokasi-button, button {
   display: inline-block;
-  margin: 10px 0;
-  padding: 10px 15px;
-  background: #f39c12;
-  color: white;
-  text-decoration: none;
+  margin: 1em 0.3em;
+  padding: 10px 20px;
+  background-color: #ffcc00;
+  border: none;
   border-radius: 10px;
   font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s;
 }
 
-button {
-  padding: 10px 15px;
-  margin: 10px 5px;
-  border: none;
-  border-radius: 8px;
-  background-color: #3498db;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
+a.lokasi-button:hover, button:hover {
+  background-color: #ffe066;
+  transform: scale(1.05);
 }
 
 .rekening {
-  margin-top: 20px;
-  font-size: 18px;
-  background-color: #ffeaa7;
-  padding: 10px;
-  border-radius: 10px;
+  margin-top: 2em;
+  font-size: 1em;
 }
 
 .gallery {
-  padding: 20px;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 15px;
-  background: rgba(255,255,255,0.95);
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 2em;
 }
 
 .gallery img {
-  width: 300px;
-  height: auto;
-  border-radius: 12px;
-  transition: transform 0.3s;
+  width: 30%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease;
 }
 
 .gallery img:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
-.sun {
-  width: 100px;
-  height: 100px;
-  background: radial-gradient(circle, #FFD700 0%, #FFA500 100%);
-  border-radius: 50%;
-  position: absolute;
-  top: 30px;
-  right: 30px;
-  animation: rotate 20s linear infinite;
-  box-shadow: 0 0 30px rgba(255,215,0,0.8);
+.countdown {
+  margin-top: 1em;
+  font-size: 1.2em;
+  animation: pulse 2s infinite;
 }
 
-@keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.open-btn-container {
-  text-align: center;
-  margin-top: 150px;
-}
-
-.open-button {
-  background-color: #e67e22;
-  padding: 20px 30px;
-  font-size: 20px;
-  color: white;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
 }
