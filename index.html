@@ -1,122 +1,159 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Undangan Maotonan</title>
   <style>
-    body {
+    * {
+      box-sizing: border-box;
+    }
+
+    body, html {
       margin: 0;
       padding: 0;
-      font-family: sans-serif;
-      background: #f5f5f5;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fefefe;
     }
 
-    .container {
-      display: none;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .buka-undangan {
+    /* Cover */
+    .cover {
       position: fixed;
-      top: 0; left: 0;
-      width: 100%;
+      width: 100vw;
       height: 100vh;
       background: url('https://i.imgur.com/NEZCgFe.jpg') center/cover no-repeat;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      text-align: center;
+      z-index: 9999;
       color: white;
-      text-shadow: 1px 1px 3px #000;
+      text-shadow: 1px 1px 4px black;
     }
 
-    .buka-undangan button {
-      padding: 15px 30px;
-      font-size: 18px;
+    .cover h1 {
+      font-size: 36px;
+      margin: 0;
+    }
+
+    .cover button {
+      margin-top: 20px;
+      padding: 14px 28px;
+      font-size: 16px;
       border: none;
       border-radius: 8px;
-      background: #b8860b;
+      background-color: #d4af37;
       color: white;
       cursor: pointer;
-      margin-top: 20px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: 0.3s;
+    }
+
+    .cover button:hover {
+      background-color: #b8860b;
+    }
+
+    /* Undangan */
+    .container {
+      display: none;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 20px;
     }
 
     .section {
-      margin-top: 30px;
-      padding: 20px;
       background: white;
+      padding: 20px;
+      margin-bottom: 20px;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .section h2 {
+      margin-top: 0;
+      color: #b8860b;
     }
 
     footer {
       text-align: center;
-      margin-top: 50px;
-      padding: 20px;
+      font-size: 14px;
       color: #777;
+      margin: 40px 0 20px;
+    }
+
+    @media (max-width: 600px) {
+      .cover h1 {
+        font-size: 28px;
+      }
+
+      .cover button {
+        font-size: 14px;
+        padding: 12px 24px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Halaman Awal -->
-  <div class="buka-undangan" id="cover">
+  <!-- Cover -->
+  <div class="cover" id="cover">
     <h1>Undangan Maotonan</h1>
-    <p>Tekan untuk membuka undangan</p>
+    <p>Silakan tekan tombol di bawah untuk membuka</p>
     <button onclick="bukaUndangan()">Buka Undangan</button>
   </div>
 
   <!-- Isi Undangan -->
-  <div class="container" id="isi-undangan">
-    <h2>Om Swastyastu</h2>
-    <p>Dengan hormat kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam upacara Maotonan anak kami.</p>
-    
+  <div class="container" id="isiUndangan">
     <div class="section">
-      <h3>🗓️ Waktu dan Tempat</h3>
+      <h2>Om Swastyastu</h2>
       <p>
-        Sabtu, 1 Juni 2025<br>
-        Pukul 09.00 WITA<br>
-        Jl. Dharma Bali No.88, Gianyar
+        Dengan hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam acara upacara Maotonan putra kami yang akan diselenggarakan pada:
+      </p>
+      <p>
+        <strong>Hari/Tanggal:</strong> Sabtu, 1 Juni 2025<br>
+        <strong>Waktu:</strong> 09.00 WITA<br>
+        <strong>Tempat:</strong> Jl. Dharma Bali No.88, Gianyar
       </p>
     </div>
 
     <div class="section">
-      <h3>💌 Amplop Digital</h3>
-      <p>Jika berkenan memberikan tanda kasih secara digital, silakan transfer ke:</p>
-      <p><strong>Bank BCA</strong><br>
-      1234567890<br>
-      a.n. Gede Wiratama</p>
+      <h2>Amplop Digital 💌</h2>
+      <p>Jika Bapak/Ibu berkenan memberikan tanda kasih melalui transfer, berikut nomor rekening kami:</p>
+      <p>
+        <strong>BCA</strong><br>
+        No. Rekening: <strong>1234567890</strong><br>
+        a.n. Gede Wiratama
+      </p>
     </div>
 
     <div class="section">
-      <h3>🙏 Penutup</h3>
-      <p>Kehadiran dan doa restu Bapak/Ibu sangat berarti bagi kami. Terima kasih.</p>
+      <h2>Penutup 🙏</h2>
+      <p>
+        Besar harapan kami atas kehadiran Bapak/Ibu/Saudara/i. Semoga kita semua selalu dalam lindungan Ida Sang Hyang Widhi Wasa.
+      </p>
       <p>Om Shanti Shanti Shanti Om</p>
     </div>
   </div>
 
-  <!-- Musik Otomatis -->
+  <!-- Musik -->
   <audio id="musik" src="musik.mp3" loop></audio>
 
   <script>
     function bukaUndangan() {
-      // Sembunyikan cover
       document.getElementById('cover').style.display = 'none';
-      // Tampilkan isi undangan
-      document.getElementById('isi-undangan').style.display = 'block';
-      // Mainkan musik
+      document.getElementById('isiUndangan').style.display = 'block';
+
       const musik = document.getElementById('musik');
       musik.play().catch((e) => {
-        console.log("Autoplay gagal, pengguna harus berinteraksi terlebih dahulu.", e);
+        console.warn("Autoplay diblokir, user harus berinteraksi.", e);
       });
     }
   </script>
+
+  <footer>
+    &copy; 2025 Keluarga Gede Wiratama
+  </footer>
 
 </body>
 </html>
