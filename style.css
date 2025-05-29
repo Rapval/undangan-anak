@@ -49,38 +49,35 @@ h1, h2, h3, p, button, a {
 h1.judul {
   font-size: 2.5em;
   color: #FFD700
-  border; #000000
 }
 
 h2.subjudul {
   font-size: 1.8em;
   margin-bottom: 1em;
   color: #FFD700
-  border; #000000
 }
 
 h3.subjudul {
   font-size: 1.8em;
   margin-bottom: 1em
   color: #FFD700
-  border: #000000
 
 .lokasi-button, button {
   margin: 1em;
   padding: 10px 20px;
-  background-color: #FF00FF;
+  background-color: #ffcc00;
   border: none;
   border-radius: 10px;
-  color: #FF00F;
+  color: #FF00FF;
 }
 
 .rekening {
-  margin-top: 2em;
-  font-size: 1em;
+  margin-top: 3em;
+  font-size: 2em;
   padding:10px 20px;
   border: none;
   border-radius: 10px;
-  background-color: #0000f;
+  background-color: #0000FF;
   color: #000000;
 }
 
