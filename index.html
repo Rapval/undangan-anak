@@ -3,99 +3,194 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Undangan Otonan Anak</title>
-  <link rel="stylesheet" href="style.css"/>
+  <title>Undangan Otonan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lottie-web@5.7.4/build/player/lottie.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-image: url('background.jpg');
+      background-size: cover;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+      color: #222;
+      overflow-x: hidden;
+    }
+
+    .sun {
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle, #FFD700 0%, #FFA500 100%);
+      border-radius: 50%;
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      animation: spin 20s linear infinite;
+      box-shadow: 0 0 30px rgba(255,215,0,0.8);
+      z-index: 0;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .open-btn-container {
+      text-align: center;
+      margin-top: 200px;
+      z-index: 1;
+      position: relative;
+    }
+
+    .open-button {
+      background-color: #e67e22;
+      padding: 20px 30px;
+      font-size: 20px;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .container {
+      display: none;
+      text-align: center;
+      max-width: 700px;
+      margin: 30px auto;
+      padding: 25px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      position: relative;
+      z-index: 1;
+    }
+
+    h1, h2 {
+      font-family: 'Great Vibes', cursive;
+      color: #d35400;
+    }
+
+    .lokasi-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #3498db;
+      color: white;
+      border-radius: 10px;
+      text-decoration: none;
+      margin: 10px 0;
+    }
+
+    .gallery {
+      display: none;
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .gallery img {
+      width: 300px;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .rekening {
+      background: #ffeaa7;
+      padding: 10px;
+      border-radius: 10px;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 15px;
+      border: none;
+      background-color: #2ecc71;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-
   <div class="sun"></div>
 
-  <!-- Halaman Pembuka -->
   <div class="open-btn-container" id="openContainer">
     <button class="open-button" onclick="bukaUndangan()">📜 Buka Undangan</button>
   </div>
 
-  <!-- Isi Undangan -->
-  <div class="container" id="isiUndangan" style="display: none;">
-    <div class="naruto-animation" id="narutoLottie"></div>
-
-    <h1>Undangan Otonan Anak</h1>
-    <h2>"Manusa Yadnya"</h2>
-    <p>Halo <span id="nama-tamu">Tamu Spesial</span>,</p>
-    <p>Dengan penuh sukacita kami mengundang Anda untuk hadir dalam acara otonan anak kami.</p>
-
+  <div class="container" id="isiUndangan">
+    <div id="naruto-animation" style="height: 150px;"></div>
+    <h1>Undangan Upacara Otonan</h1>
+    <h2>Untuk: <span id="nama-tamu">Tamu Spesial</span></h2>
+    <p>Dengan hormat kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara otonan anak kami.</p>
     <p><strong>Tanggal:</strong> 10 Juni 2025</p>
     <p><strong>Lokasi:</strong></p>
-    <a class="lokasi-button" href="https://maps.app.goo.gl/WDsSUm5mvQoFox9j8" target="_blank">📍 Klik Untuk Lokasi</a>
-
+    <a class="lokasi-button" href="https://maps.app.goo.gl/WDsSUm5mvQoFox9j8" target="_blank">📍 Lihat Lokasi</a>
     <div id="countdown"></div>
 
-    <button onclick="toggleGallery()">📸 Lihat Galeri Foto</button>
+    <button onclick="toggleGallery()">📸 Lihat Galeri</button>
 
-    <div class="rekening">
-      💌 Kirim Hadiah: <br>
-      BCA 6485235454 a/n Rivaldo Natael
-    </div>
-
-    <!-- Galeri -->
-    <div class="gallery" id="gallery" style="display: none;">
+    <div class="gallery" id="gallery">
       <img src="foto1.jpg" alt="Foto 1">
       <img src="foto2.jpg" alt="Foto 2">
       <img src="foto3.jpg" alt="Foto 3">
     </div>
+
+    <div class="rekening">
+      🎁 Kirim Hadiah: <br>BCA 6485235454 a/n Rivaldo Natael
+    </div>
   </div>
 
-  <!-- Musik -->
   <audio id="bgMusic" loop>
     <source src="musik.mp3" type="audio/mpeg">
   </audio>
 
   <script>
     function bukaUndangan() {
-      document.getElementById("openContainer").style.display = "none";
-      document.getElementById("isiUndangan").style.display = "block";
-      document.getElementById("bgMusic").play();
+      document.getElementById('openContainer').style.display = 'none';
+      document.getElementById('isiUndangan').style.display = 'block';
+      document.getElementById('bgMusic').play();
     }
 
     function toggleGallery() {
-      const gallery = document.getElementById("gallery");
-      gallery.style.display = gallery.style.display === "block" ? "none" : "block";
+      const galeri = document.getElementById('gallery');
+      galeri.style.display = galeri.style.display === 'flex' ? 'none' : 'flex';
     }
 
-    // Nama dari URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const namaTamu = urlParams.get('untuk');
-    if (namaTamu) {
-      document.getElementById('nama-tamu').innerText = decodeURIComponent(namaTamu.replace(/\+/g, ' '));
+    const nama = new URLSearchParams(window.location.search).get('untuk');
+    if (nama) {
+      document.getElementById('nama-tamu').innerText = decodeURIComponent(nama.replace(/\+/g, ' '));
     }
 
-    // Countdown
-    const countdown = document.getElementById("countdown");
     const eventDate = new Date("2025-06-10T00:00:00").getTime();
     setInterval(() => {
       const now = new Date().getTime();
       const distance = eventDate - now;
-
-      if (distance > 0) {
-        const hari = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const jam = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const menit = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const detik = Math.floor((distance % (1000 * 60)) / 1000);
-        countdown.innerHTML = `🕒 Hitung Mundur: ${hari}h ${jam}j ${menit}m ${detik}d`;
-      } else {
-        countdown.innerHTML = "🎉 Acara sedang berlangsung";
-      }
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      document.getElementById('countdown').innerText =
+        distance > 0 ? `⏳ ${days}h ${hours}j ${minutes}m ${seconds}d lagi` : '🎉 Sedang berlangsung!';
     }, 1000);
 
-    // Lottie Naruto
+    // Naruto Animation
     lottie.loadAnimation({
-      container: document.getElementById('narutoLottie'),
+      container: document.getElementById('naruto-animation'),
       renderer: 'svg',
       loop: true,
       autoplay: true,
-      path: 'naruto.json' // ganti dengan animasi naruto 3D
+      path: 'https://assets3.lottiefiles.com/packages/lf20_hgjazn5z.json'
     });
   </script>
 </body>
