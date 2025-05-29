@@ -3,45 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Undangan Otonan 🎉</title>
+  <title>Undangan Otonan Anak</title>
   <link rel="stylesheet" href="style.css"/>
-  <script src="https://unpkg.com/lottie-web@5.7.4/build/player/lottie.min.js"></script>
 </head>
 <body>
-
-  <!-- Pembuka -->
-  <div id="opening" class="opening-screen">
-    <h1 class="judul-latin">Undangan Khusus Untukmu</h1>
-    <button onclick="bukaUndangan()">📜 Buka Undangan</button>
+  <!-- Halaman Pembuka -->
+  <div id="cover" class="cover">
+    <h1 class="judul-latin">Selamat Datang</h1>
+    <p class="teks">Klik tombol di bawah ini untuk membuka undangan</p>
+    <button class="btn-buka" onclick="bukaUndangan()">Buka Undangan</button>
   </div>
 
   <!-- Isi Undangan -->
   <div id="undangan" class="container hidden">
-    <div id="lottie-anim" class="lottie"></div>
+    <h1 class="judul-latin">Undangan Upacara Otonan</h1>
+    <h2 class="judul-latin">Manusa Yadnya</h2>
+    <p class="teks">Halo <span id="nama-tamu">Tamu Spesial</span>,</p>
+    <p class="teks">Kami mengundangmu untuk hadir di acara ulang tahun anak kami.</p>
+    <p class="teks"><strong>Tanggal:</strong> 10 Juni 2025</p>
+    <p class="teks"><strong>Lokasi:</strong></p>
+    <a class="lokasi-button" href="https://maps.app.goo.gl/WDsSUm5mvQoFox9j8" target="_blank">📍 Klik untuk lihat lokasi</a>
 
-    <h1 class="judul-latin">Upacara Manusa Yadnya</h1>
-    <h2 class="judul-latin">“MAOTONAN”</h2>
-    <p>Hallo <span id="nama-tamu">Tamu Spesial</span>,</p>
-    <p>Kami mengundangmu untuk hadir di acara Otonan Putri kami Tercinta.</p>
+    <div id="countdown" class="countdown-box"></div>
 
-    <p><strong>Tanggal:</strong> 10 Juni 2025</p>
-    <p><strong>Lokasi:</strong></p>
-    <a class="lokasi-button" href="https://maps.app.goo.gl/WDsSUm5mvQoFox9j8" target="_blank">📍 Klik untuk detail</a>
+    <button class="gallery-button" onclick="toggleGallery()">Lihat Galeri 📸</button>
 
-    <div id="countdown"></div>
-
-    <button onclick="toggleGallery()">📸 Lihat Galeri</button>
-
-    <div class="rekening">
-      💌 Kirim Hadiah:<br>
-      BCA 6485235454 a/n Rivaldo Natael
-    </div>
-
-    <!-- Galeri Foto -->
-    <div class="gallery" id="gallery">
+    <div class="gallery" id="gallery" style="display: none;">
       <img src="foto1.jpg" alt="Foto 1">
       <img src="foto2.jpg" alt="Foto 2">
       <img src="foto3.jpg" alt="Foto 3">
+    </div>
+
+    <div class="rekening">
+      💌 Kirim Hadiah: <br>
+      BCA 6485235454 a/n Rivaldo Natael
     </div>
   </div>
 
@@ -50,19 +45,18 @@
   </audio>
 
   <script>
-    const audio = document.getElementById("bgMusic");
-
     function bukaUndangan() {
-      document.getElementById("opening").style.display = "none";
+      document.getElementById("cover").style.display = "none";
       document.getElementById("undangan").classList.remove("hidden");
-      audio.play();
+      document.getElementById("bgMusic").play();
     }
 
     function toggleGallery() {
-      const galeri = document.getElementById("gallery");
-      galeri.style.display = galeri.style.display === "block" ? "none" : "block";
+      const gallery = document.getElementById("gallery");
+      gallery.style.display = gallery.style.display === "block" ? "none" : "block";
     }
 
+    // Ambil nama tamu dari URL
     const urlParams = new URLSearchParams(window.location.search);
     const namaTamu = urlParams.get('untuk');
     if (namaTamu) {
@@ -75,26 +69,16 @@
     setInterval(() => {
       const now = new Date().getTime();
       const distance = eventDate - now;
-
       if (distance > 0) {
         const hari = Math.floor(distance / (1000 * 60 * 60 * 24));
         const jam = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const menit = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const detik = Math.floor((distance % (1000 * 60)) / 1000);
-        countdown.innerHTML = `⏳ ${hari}h ${jam}j ${menit}m ${detik}d`;
+        countdown.innerHTML = `🕒 Hitung Mundur: ${hari}h ${jam}j ${menit}m ${detik}d`;
       } else {
-        countdown.innerHTML = "Acara sedang berlangsung 🎉";
+        countdown.innerHTML = "🎉 Acara sedang berlangsung!";
       }
     }, 1000);
-
-    // Lottie Naruto
-    lottie.loadAnimation({
-      container: document.getElementById('lottie-anim'),
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path: 'naruto.json'
-    });
   </script>
 </body>
 </html>
