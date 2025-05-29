@@ -63,12 +63,14 @@ h2.subjudul {
   border-radius: 10px;
   font-weight: bold;
   color: #333;
-  cursor: pointer;
 }
 
 .rekening {
   margin-top: 2em;
   font-size: 1em;
+  padding:10px 20px;
+  background-color: #ffcc02;
+  color: #001;
 }
 
 .gallery {
