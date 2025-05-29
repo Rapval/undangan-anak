@@ -6,20 +6,107 @@
   <title>Undangan Dua Otonan 🎉</title>
   <link rel="stylesheet" href="style.css"/>
   <script src="https://unpkg.com/lottie-web@5.7.4/build/player/lottie.min.js"></script>
-</head>
-<body style="background-image: url('background.jpg');">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('background.jpg');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      text-align: center;
+    }
 
-  <div class="container animate-in">
+    .container {
+      padding: 20px;
+      display: none;
+      animation: fadeIn 2s ease-in-out forwards;
+    }
+
+    h1, h2, p {
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    h1 {
+      font-size: 2.5em;
+      animation: popIn 1s ease-in-out;
+    }
+
+    .buka-button {
+      margin-top: 30vh;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      background-color: #ff4081;
+      border: none;
+      border-radius: 30px;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      animation: pulse 2s infinite;
+    }
+
+    .rekening, .lokasi-button {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .lokasi-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #00bcd4;
+      color: white;
+      border-radius: 25px;
+      text-decoration: none;
+      margin-bottom: 10px;
+    }
+
+    .gallery {
+      margin-top: 20px;
+    }
+
+    .gallery img {
+      max-width: 90%;
+      margin: 10px auto;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Tombol untuk buka undangan -->
+  <button class="buka-button" onclick="bukaUndangan()">💌 Buka Undangan</button>
+
+  <!-- Isi undangan disembunyikan awalnya -->
+  <div class="container" id="undangan-content">
     <div id="lottie-anim" class="lottie"></div>
 
     <h1>Undangan Upacara Manusa Yadnya 🎉</h1>
-              <h2> "Ma Oton" </h2>
+    <h2>✨ "MAOTONAN" ✨</h2>
+
     <p>Halo <span id="nama-tamu">Tamu Spesial</span>,</p>
-    <p>Kami mengundangmu untuk hadir di acara ulang tahun anak kami.</p>
+    <p>Dengan penuh sukacita, kami mengundangmu menghadiri upacara Otonan buah hati kami tercinta.</p>
 
     <p><strong>Tanggal:</strong> 10 Juni 2025</p>
-    <p><strong>Lokasi:</strong></p>
-    <a class="lokasi-button" href="https://maps.app.goo.gl/WDsSUm5mvQoFox9j8" target="_blank">📍 Klik Untuk Lebih Detail</a>
+    <p><strong>Tempat:</strong></p>
+    <a class="lokasi-button" href="https://maps.app.goo.gl/WDsSUm5mvQoFox9j8" target="_blank">📍 Klik untuk lihat lokasi</a>
 
     <div id="countdown"></div>
 
@@ -30,20 +117,27 @@
       💌 Kirim Hadiah: <br>
       BCA 6485235454 a/n Rivaldo Natael
     </div>
+
+    <!-- Galeri Foto -->
+    <div class="gallery" id="gallery" style="display: none;">
+      <img src="foto1.jpg" alt="Foto 1">
+      <img src="foto2.jpg" alt="Foto 2">
+      <img src="foto3.jpg" alt="Foto 3">
+    </div>
   </div>
 
-  <!-- Galeri Foto -->
-  <div class="gallery" id="gallery" style="display: none;">
-    <img src="foto1.jpg" alt="Foto 1">
-    <img src="foto2.jpg" alt="Foto 2">
-    <img src="foto3.jpg" alt="Foto 3">
-  </div>
-
+  <!-- Musik Latar -->
   <audio id="bgMusic" loop>
     <source src="musik.mp3" type="audio/mpeg">
   </audio>
 
   <script>
+    function bukaUndangan() {
+      document.querySelector('.buka-button').style.display = 'none';
+      document.getElementById('undangan-content').style.display = 'block';
+      playMusic();
+    }
+
     function playMusic() {
       const audio = document.getElementById("bgMusic");
       audio.play();
@@ -54,14 +148,14 @@
       gallery.style.display = gallery.style.display === "block" ? "none" : "block";
     }
 
-    // Ambil nama tamu dari parameter URL
+    // Nama Tamu dari URL
     const urlParams = new URLSearchParams(window.location.search);
     const namaTamu = urlParams.get('untuk');
     if (namaTamu) {
       document.getElementById('nama-tamu').innerText = decodeURIComponent(namaTamu.replace(/\+/g, ' '));
     }
 
-    // Countdown (Opsional)
+    // Countdown
     const countdown = document.getElementById("countdown");
     const eventDate = new Date("2025-06-10T00:00:00").getTime();
     setInterval(() => {
