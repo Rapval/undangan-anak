@@ -4,31 +4,59 @@ body {
   background-image: url('background.jpg');
   background-size: cover;
   background-position: center;
-  font-family: 'Great Vibes', cursive;
-  color: #f5e8c7;
+  font-family: 'Playfair Display', serif;
+  color: #fdf2e9;
   text-align: center;
+}
+
+h1, h2, h3, p, button, a {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+#opening {
+  padding: 100px 20px;
+  background-color: rgba(0,0,0,0.5);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#opening h1 {
+  font-size: 2.5em;
+}
+
+#opening p {
+  margin-top: 0.5em;
+  font-size: 1.3em;
+}
+
+#opening button {
+  margin-top: 2em;
+  padding: 12px 25px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 10px;
+  background-color: #ffcb05;
+  color: #000;
+  cursor: pointer;
 }
 
 .container {
   padding: 2rem;
-  background: none; /* Menghilangkan background putih */
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Biar tulisan lebih hidup */
 }
 
 h1.judul {
   font-size: 2.5em;
-  margin-bottom: 0.2em;
 }
 
 h2.subjudul {
   font-size: 1.8em;
-  margin-top: 0;
   margin-bottom: 1em;
 }
 
-a.lokasi-button, button {
-  display: inline-block;
-  margin: 1em 0.3em;
+.lokasi-button, button {
+  margin: 1em;
   padding: 10px 20px;
   background-color: #ffcc00;
   border: none;
@@ -36,12 +64,6 @@ a.lokasi-button, button {
   font-weight: bold;
   color: #333;
   cursor: pointer;
-  transition: transform 0.2s, background-color 0.3s;
-}
-
-a.lokasi-button:hover, button:hover {
-  background-color: #ffe066;
-  transform: scale(1.05);
 }
 
 .rekening {
