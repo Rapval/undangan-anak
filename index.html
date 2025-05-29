@@ -3,68 +3,66 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Undangan Otonan Anak</title>
+  <title>Undangan Otonan 🎉</title>
   <link rel="stylesheet" href="style.css"/>
   <script src="https://unpkg.com/lottie-web@5.7.4/build/player/lottie.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <div class="sun"></div>
-
-  <!-- Halaman Pembuka -->
-  <div class="open-btn-container" id="openContainer">
-    <button class="open-button" onclick="bukaUndangan()">📜 Buka Undangan</button>
+  <!-- Pembuka -->
+  <div id="opening" class="opening-screen">
+    <h1 class="judul-latin">Undangan Khusus Untukmu</h1>
+    <button onclick="bukaUndangan()">📜 Buka Undangan</button>
   </div>
 
   <!-- Isi Undangan -->
-  <div class="container" id="isiUndangan" style="display: none;">
-    <div class="naruto-animation" id="narutoLottie"></div>
+  <div id="undangan" class="container hidden">
+    <div id="lottie-anim" class="lottie"></div>
 
-    <h1>Undangan Otonan Anak</h1>
-    <h2>"Manusa Yadnya"</h2>
-    <p>Halo <span id="nama-tamu">Tamu Spesial</span>,</p>
-    <p>Dengan penuh sukacita kami mengundang Anda untuk hadir dalam acara otonan anak kami.</p>
+    <h1 class="judul-latin">Upacara Manusa Yadnya</h1>
+    <h2 class="judul-latin">“MAOTONAN”</h2>
+    <p>Hallo <span id="nama-tamu">Tamu Spesial</span>,</p>
+    <p>Kami mengundangmu untuk hadir di acara Otonan Putri kami Tercinta.</p>
 
     <p><strong>Tanggal:</strong> 10 Juni 2025</p>
     <p><strong>Lokasi:</strong></p>
-    <a class="lokasi-button" href="https://maps.app.goo.gl/WDsSUm5mvQoFox9j8" target="_blank">📍 Klik Untuk Lokasi</a>
+    <a class="lokasi-button" href="https://maps.app.goo.gl/WDsSUm5mvQoFox9j8" target="_blank">📍 Klik untuk detail</a>
 
     <div id="countdown"></div>
 
-    <button onclick="toggleGallery()">📸 Lihat Galeri Foto</button>
+    <button onclick="toggleGallery()">📸 Lihat Galeri</button>
 
     <div class="rekening">
-      💌 Kirim Hadiah: <br>
+      💌 Kirim Hadiah:<br>
       BCA 6485235454 a/n Rivaldo Natael
     </div>
 
-    <!-- Galeri -->
-    <div class="gallery" id="gallery" style="display: none;">
+    <!-- Galeri Foto -->
+    <div class="gallery" id="gallery">
       <img src="foto1.jpg" alt="Foto 1">
       <img src="foto2.jpg" alt="Foto 2">
       <img src="foto3.jpg" alt="Foto 3">
     </div>
   </div>
 
-  <!-- Musik -->
   <audio id="bgMusic" loop>
     <source src="musik.mp3" type="audio/mpeg">
   </audio>
 
   <script>
+    const audio = document.getElementById("bgMusic");
+
     function bukaUndangan() {
-      document.getElementById("openContainer").style.display = "none";
-      document.getElementById("isiUndangan").style.display = "block";
-      document.getElementById("bgMusic").play();
+      document.getElementById("opening").style.display = "none";
+      document.getElementById("undangan").classList.remove("hidden");
+      audio.play();
     }
 
     function toggleGallery() {
-      const gallery = document.getElementById("gallery");
-      gallery.style.display = gallery.style.display === "block" ? "none" : "block";
+      const galeri = document.getElementById("gallery");
+      galeri.style.display = galeri.style.display === "block" ? "none" : "block";
     }
 
-    // Nama dari URL
     const urlParams = new URLSearchParams(window.location.search);
     const namaTamu = urlParams.get('untuk');
     if (namaTamu) {
@@ -79,23 +77,23 @@
       const distance = eventDate - now;
 
       if (distance > 0) {
-        const Day = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const Hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const Minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const Second = Math.floor((distance % (1000 * 60)) / 1000);
-        countdown.innerHTML = `🕒 Hitung Mundur: ${Day}D ${hours}H ${Minutes}M ${Second}S`;
+        const hari = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const jam = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const menit = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const detik = Math.floor((distance % (1000 * 60)) / 1000);
+        countdown.innerHTML = `⏳ ${hari}h ${jam}j ${menit}m ${detik}d`;
       } else {
-        countdown.innerHTML = "🎉 Acara sedang berlangsung";
+        countdown.innerHTML = "Acara sedang berlangsung 🎉";
       }
     }, 1000);
 
     // Lottie Naruto
     lottie.loadAnimation({
-      container: document.getElementById('narutoLottie'),
+      container: document.getElementById('lottie-anim'),
       renderer: 'svg',
       loop: true,
       autoplay: true,
-      path: 'naruto.json' // ganti dengan animasi naruto 3D
+      path: 'naruto.json'
     });
   </script>
 </body>
