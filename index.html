@@ -1,14 +1,51 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+  <!-- Font Bali Latin -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Balinese&display=swap" rel="stylesheet">
+
+<!-- Lottie Player for Animasi Naruto -->
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+<style>
+  .judul-maotonan {
+    font-family: 'Noto Sans Balinese', sans-serif;
+    font-size: 40px;
+    color: #b8860b; /* Gold elegan */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    margin: 30px 0;
+  }
+
+  #naruto-anim-container {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle, #000000aa 20%, #000000cc 80%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Undangan Otonan</title>
   <link rel="stylesheet" href="style.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
 </head>
-<body>
-
+<body><div id="naruto-anim-container">
+  <lottie-player
+    src="https://assets6.lottiefiles.com/packages/lf20_yDOoB8.json"
+    background="transparent"
+    speed="1"
+    style="width: 300px; height: 300px;"
+    autoplay>
+  </lottie-player>
+</div>
   <!-- Layar pembuka -->
   <div id="opening">
     <h1>Selamat Datang</h1>
@@ -20,7 +57,7 @@
   <div id="undangan" style="display:none">
     <div class="container animate-in">
       <h1 class="judul">Undangan Upacara Manusa Yadnya</h1>
-      <h2 class="subjudul">"MAOTONAN"</h2>
+      <h2 class="judul-maotonan">MAOTONAN</h2>
       <h3 class="subjudul">Ni Putu Floryn Natalie Widianingsih</h3>
       <p>Hallo <span id="nama-tamu">Tamu Spesial</span>,</p>
       <p>Kami Mengundangmu Untuk Hadir Di Acara Otonan Putri Kami Tercinta.</p>
@@ -84,5 +121,21 @@
       }
     }, 1000);
   </script>
+<script>
+  // Tombol undangan (ubah id sesuai tombol kamu)
+  const undanganBtn = document.getElementById('lihat-undangan');
+  const narutoAnim = document.getElementById('naruto-anim-container');
+
+  if (undanganBtn) {
+    undanganBtn.addEventListener('click', () => {
+      narutoAnim.style.display = 'flex';
+
+      // Hilangkan animasi setelah 4 detik
+      setTimeout(() => {
+        narutoAnim.style.display = 'none';
+      }, 4000);
+    });
+  }
+</script>
 </body>
 </html>
