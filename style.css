@@ -115,3 +115,10 @@ h3.subjudul {
   color: #ff8c00;
   margin: 0.5em 0;
 }
+.bali-text {
+  font-family: 'BalineseScript', cursive;
+  font-size: 24px;
+  color: #8B4513; /* warna coklat khas kayu Bali */
+  text-align: center;
+  margin: 20px 0;
+}
