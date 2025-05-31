@@ -27,7 +27,7 @@ function toggleGallery() {
 }
 
 // Countdown
-const targetDate = new Date("2025-06-10T10:00:00+08:00").getTime();
+const targetDate = new Date("2025-06-10T14:00:00+08:00").getTime();
 const countdown = document.getElementById("countdown");
 
 setInterval(() => {
@@ -44,5 +44,5 @@ setInterval(() => {
   const Minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   const Second = Math.floor((distance % (1000 * 60)) / 1000);
 
-  countdown.innerHTML = `Countdown: ${Day}D ${Hours}H ${Minuets}M ${Second}S`;
+  countdown.innerHTML = `Countdown: ${Day}D ${Hours}H ${Minutes}M ${Second}S`;
 }, 1000);
