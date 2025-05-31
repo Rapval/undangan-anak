@@ -143,6 +143,6 @@ h3.subjudul {
   animation: slideDownFade 1s ease-out both;
 }
 
-.animate-delay-1 { animation-delay: 2.5s; }
-.animate-delay-2 { animation-delay: 2.5s; }
-.animate-delay-3 { animation-delay: 2.5s; }
+.animate-delay-1 { animation-delay: 1s; }
+.animate-delay-2 { animation-delay: 1s; }
+.animate-delay-3 { animation-delay: 1s; }
