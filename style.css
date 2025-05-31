@@ -140,7 +140,7 @@ h3.subjudul {
 }
 
 .animate-slide {
-  animation: slideDownFade 3s ease-out forwards;
+  animation: slideDownFade 0.15s ease-out forwards;
 }
 
 .animate-delay-1 { animation-delay: 2.5s; }
