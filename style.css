@@ -112,7 +112,7 @@ h3.subjudul {
 .fancy-text {
   font-family: 'Great Vibes', cursive;
   font-size: 2em;
-  color: #ffffff;
+  color: #ff8c00;
   margin: 0.5em 0;
 }
 .bali-text {
@@ -124,6 +124,9 @@ h3.subjudul {
 }
 .orange-text {
   color: #ff8c00;
+}
+.white-text {
+  color: #ffffff;
 }
 
 @keyframes slideDownFade {
