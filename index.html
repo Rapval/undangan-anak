@@ -71,7 +71,7 @@
 
     // Countdown
     const countdown = document.getElementById("countdown");
-    const eventDate = Date.UTC(2025, 5, 10, 6, 0, 0);
+    const eventDate = new Date("2025-06-10T14:00:00+08:00").getTime();
     setInterval(() => {
       const now = new Date().getTime();
       const distance = eventDate - now;
