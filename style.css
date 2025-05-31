@@ -118,7 +118,7 @@ h3.subjudul {
 .bali-text {
   font-family: 'BalineseScript', cursive;
   font-size: 24px;
-  color: ff8c00;
+  color: #ff8c00;
   text-align: center;
   margin: 20px 0;
 }
@@ -140,7 +140,7 @@ h3.subjudul {
 }
 
 .animate-slide {
-  animation: slideDownFade 2s ease-out forwards;
+  animation: slideDownFade 2s ease-out both;
 }
 
 .animate-delay-1 { animation-delay: 2.5s; }
