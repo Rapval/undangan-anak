@@ -129,16 +129,18 @@ h3.subjudul {
 @keyframes slideDownFade {
   0% {
     opacity: 0;
-    transform: translateY(-40px);
+    transform: translateY(-40px); scale(0.95);
+    filter: blur(2px);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0); scale(1);
+    filter: blur(0);
   }
 }
 
 .animate-slide {
-  animation: slideDownFade 0.10s ease-out forwards;
+  animation: slideDownFade 1s ease-out forwards;
 }
 
 .animate-delay-1 { animation-delay: 1s; }
