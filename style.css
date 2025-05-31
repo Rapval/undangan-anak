@@ -73,7 +73,7 @@ h3.subjudul {
 }
 
 .rekening {
-  margin-top: 2.5em;
+  margin-top: 2em;
   font-size: 1.5em;
   padding:15px 25px;
   background-color: #0000ff;
@@ -140,7 +140,7 @@ h3.subjudul {
 }
 
 .animate-slide {
-  animation: slideDownFade 2.5s ease-out forwards;
+  animation: slideDownFade 2s ease-out forwards;
 }
 
 .animate-delay-1 { animation-delay: 2.5s; }
