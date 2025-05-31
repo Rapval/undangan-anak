@@ -69,23 +69,22 @@
       document.getElementById('nama-tamu').innerText = decodeURIComponent(namaTamu.replace(/\+/g, ' '));
     }
 
- const countdown = document.getElementById("countdown");
-const targetDate = new Date("2025-06-10T06:00:00Z").getTime(); // 14:00 WITA = 06:00 UTC
-
-setInterval(() => {
-  const now = new Date().getTime(); // waktu lokal
-  const nowUTC = now + (new Date().getTimezoneOffset() * 60000); // ubah ke UTC
-
-  const distance = targetDate - nowUTC;
-
-  if (distance < 0) {
-    countdown.innerHTML = "Acara sedang berlangsung 🎉";
-    return;
-  }
-
-  const Day = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const Hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const Minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  const Second = Math.floor((distance % (1000 * 60)) / 1000);
-  countdown.innerHTML = `⏳ ${Day}D ${Hours}H ${Minutes}M ${Second}S`;
-}, 1000);
+    // Countdown
+    const countdown = document.getElementById("countdown");
+    const targetDate = new Date("2025-06-10T06:00:00Z").getTime();
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+      if (distance > 0) {
+        const Day = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const Hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const Minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const Second = Math.floor((distance % (1000 * 60)) / 1000);
+        countdown.innerHTML = `⏳ ${Day}D ${Hours}H ${Minutes}M ${Second}S`;
+      } else {
+        countdown.innerHTML = "Acara sedang berlangsung 🎉";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
