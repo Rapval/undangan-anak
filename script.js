@@ -38,27 +38,23 @@ function getUTCTimeOffset(hoursOffset) {
   );
 }
 
-// Target waktu: 10 Juni 2025 jam 14:00 WITA (GMT+8)
-const targetDate = new Date("2025-06-10T14:00:00+08:00").getTime();
+// Countdown
+const targetDate = new Date("2025-06-10T06:00:00Z").getTime(); // 14:00 WITA == 06:00 UTC
 const countdown = document.getElementById("countdown");
 
 setInterval(() => {
-  const now = new Date().getTime(); // Ini dalam lokal timezone
-  const utcNow = new Date(
-    new Date().toLocaleString("en-US", { timeZone: "UTC" })
-  ).getTime();
-
-  const distance = targetDate - utcNow;
+  const now = new Date().getTime();
+  const distance = targetDate - now;
 
   if (distance < 0) {
     countdown.innerHTML = "Acara Sedang Berlangsung!";
     return;
   }
 
-  const Day = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const Hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const Minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  const Second = Math.floor((distance % (1000 * 60)) / 1000);
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  countdown.innerHTML = `Countdown: ${Day}D ${Hours}H ${Minutes}M ${Second}S`;
+  countdown.innerHTML = `⏳ ${days}D ${hours}H ${minutes}M ${seconds}S`;
 }, 1000);
