@@ -125,3 +125,22 @@ h3.subjudul {
 .orange-text {
   color: #ff8c00;
 }
+
+@keyframes slideDownFade {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide {
+  animation: slideDownFade 1s ease-out forwards;
+}
+
+.animate-delay-1 { animation-delay: 0.5s; }
+.animate-delay-2 { animation-delay: 1s; }
+.animate-delay-3 { animation-delay: 1.5s; }
