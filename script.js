@@ -38,14 +38,13 @@ function getUTCTimeOffset(hoursOffset) {
   );
 }
 
-const countdown = document.getElementById("countdown");
+// Countdown
 const targetDate = new Date("2025-06-10T06:00:00Z").getTime(); // 14:00 WITA == 06:00 UTC
+const countdown = document.getElementById("countdown");
 
 setInterval(() => {
-  const now = new Date().getTime(); // Waktu lokal pengguna
-  const nowUTC = now + (new Date().getTimezoneOffset() * 60000); // Konversi ke UTC
-
-  const distance = targetDate - nowUTC;
+  const now = new Date().getTime();
+  const distance = targetDate - now;
 
   if (distance < 0) {
     countdown.innerHTML = "Acara Sedang Berlangsung!";
