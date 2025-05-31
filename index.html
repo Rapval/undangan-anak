@@ -71,10 +71,10 @@
 
     // Countdown
     const countdown = document.getElementById("countdown");
-    const eventDate = new Date("2025-06-10T14:00:00+08:00").getTime();
+    const targetDate = new Date("2025-06-10T06:00:00Z").getTime();
     setInterval(() => {
       const now = new Date().getTime();
-      const distance = eventDate - now;
+      const distance = targetDate - now;
       if (distance > 0) {
         const Day = Math.floor(distance / (1000 * 60 * 60 * 24));
         const Hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
