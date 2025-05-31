@@ -27,7 +27,7 @@ function toggleGallery() {
 }
 
 // Countdown
-const targetDate = new Date(Date.UTC(2025, 5, 10, 6, 0, 0)).getTime();
+const targetDate = new Date("2025-06-10T14:00:00+08:00").getTime();
 const countdown = document.getElementById("countdown");
 
 setInterval(() => {
