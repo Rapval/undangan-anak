@@ -39,7 +39,7 @@ function getUTCTimeOffset(hoursOffset) {
 }
 
 // Target waktu: 10 Juni 2025 jam 14:00 WITA (GMT+8)
-const targetDate = Date.UTC(2025, 5, 10, 6, 0, 0); // 14:00 WITA == 06:00 UTC
+const targetDate = new Date("2025-06-10T14:00:00+08:00").getTime();
 const countdown = document.getElementById("countdown");
 
 setInterval(() => {
