@@ -26,13 +26,29 @@ function toggleGallery() {
   galeri.style.display = galeri.style.display === 'block' ? 'none' : 'block';
 }
 
-// Countdown
-const targetDate = new Date("2025-06-10T14:00:00+08:00").getTime();
+function getUTCTimeOffset(hoursOffset) {
+  const now = new Date();
+  return Date.UTC(
+    now.getUTCFullYear(),
+    now.getUTCMonth(),
+    now.getUTCDate(),
+    now.getUTCHours() + hoursOffset,
+    now.getUTCMinutes(),
+    now.getUTCSeconds()
+  );
+}
+
+// Target waktu: 10 Juni 2025 jam 14:00 WITA (GMT+8)
+const targetDate = Date.UTC(2025, 5, 10, 6, 0, 0); // 14:00 WITA == 06:00 UTC
 const countdown = document.getElementById("countdown");
 
 setInterval(() => {
-  const now = new Date().getTime();
-  const distance = targetDate - now;
+  const now = new Date().getTime(); // Ini dalam lokal timezone
+  const utcNow = new Date(
+    new Date().toLocaleString("en-US", { timeZone: "UTC" })
+  ).getTime();
+
+  const distance = targetDate - utcNow;
 
   if (distance < 0) {
     countdown.innerHTML = "Acara Sedang Berlangsung!";
